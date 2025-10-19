@@ -1,0 +1,60 @@
+{
+  "name": "pirate_tales_fe",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Pirate Tales Frontend",
+  "author": "Łukasz Dawidowicz",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shivetay/pirate_tales_dummy_FE"
+  },
+  "homepage": "https://github.com/shivetay/pirate_tales_dummy_FE",
+  "bugs": {
+    "url": "https://github.com/shivetay/pirate_tales_dummy_FE/issues"
+  },
+  "keywords": [
+    "nextjs",
+    "react",
+    "tailwindcss",
+    "typescript",
+    "biome",
+    "mmo",
+    "pirate tales",
+    "webbased",
+    "game"
+  ],
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build --turbopack",
+    "start": "next start",
+    "lint": "biome check",
+    "format": "biome format --write",
+    "prepare": "husky",
+    "commit": "cz"
+  },
+  "dependencies": {
+    "next": "15.5.6",
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.0",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "commitizen": "^4.3.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "husky": "^9.1.7",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
