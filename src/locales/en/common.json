@@ -1,0 +1,12 @@
+{
+  "AUTH_EMAIL_LABEL": "Email",
+  "AUTH_PASSWORD_LABEL": "Password",
+  "AUTH_EMAIL_PLACEHOLDER": "Enter your email",
+  "AUTH_PASSWORD_PLACEHOLDER": "Enter your password",
+  "AUTH_CONFIRM_PASSWORD_LABEL": "Confirm Password",
+  "AUTH_USER_NAME_LABEL": "User Name",
+  "AUTH_USER_NAME_PLACEHOLDER": "Enter your user name",
+  "AUTH_CONFIRM_PASSWORD_PLACEHOLDER": "Confirm your password",
+  "AUTH_LOGIN_TITLE": "Login",
+  "AUTH_REGISTER_TITLE": "Register"
+}

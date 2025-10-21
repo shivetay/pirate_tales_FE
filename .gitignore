@@ -1,6 +1,8 @@
 /node_modules
 
+.cursor
 .next
 
 .env
-.cursor
+dev.env
+prod.env

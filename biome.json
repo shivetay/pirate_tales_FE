@@ -19,10 +19,16 @@
     "rules": {
       "recommended": true,
       "suspicious": {
-        "noUnknownAtRules": "off"
+        "noUnknownAtRules": "off",
+        "noConsole": {
+          "options": {
+            "allow": ["error", "info", "warn"]
+          }
+        }
       },
       "style": {
-        "noConsoleLog": "warn"
+        "useImportType": "warn",
+        "noMagicNumbers": "error"
       },
       "correctness": {
         "noUnusedImports": "error"

@@ -1,0 +1,126 @@
+.auth-view {
+  background-image: url("/assets/img/bg_skrol_ramka_1.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.auth-form-container {
+  position: relative;
+  top: 8rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 637px;
+  width: 637px;
+  gap: 5rem;
+}
+
+.auth-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.auth-form {
+  z-index: 2;
+  padding: 0.5rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 300px;
+  justify-content: center;
+}
+
+.auth-btn {
+  width: 200px;
+  height: 50px;
+  background: url("/assets/img/auth_btn_active.png") no-repeat center center;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+
+  &:disabled {
+    background: url("/assets/img/auth_btn_dis.png") no-repeat center center;
+    background-size: contain;
+    cursor: not-allowed;
+    opacity: 0.6;
+    transform: none;
+    transition: all 0.3s ease;
+  }
+}
+
+.auth-btn:hover {
+  opacity: 0.8;
+  transform: scale(1.05);
+  transition: all 0.2s ease;
+}
+
+.auth-btn:disabled {
+  background: url("/assets/img/auth_btn_dis.png") no-repeat center center;
+  background-size: contain;
+  cursor: not-allowed;
+  opacity: 0.6;
+  transform: none;
+  transition: all 0.3s ease;
+}
+
+.auth-btn:disabled:hover {
+  opacity: 0.6;
+  transform: none;
+}
+
+.auth-title-container {
+  position: relative;
+  top: 5.5rem;
+}
+.auth-title {
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  text-align: center;
+  z-index: 2;
+}
+
+/* Animation for state transitions */
+@keyframes fadeInActive {
+  from {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOutToDisabled {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
+}
+
+.auth-btn:not(:disabled) {
+  animation: fadeInActive 0.3s ease;
+}
+
+.auth-btn:disabled {
+  animation: fadeOutToDisabled 0.3s ease;
+}
