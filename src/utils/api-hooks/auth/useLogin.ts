@@ -1,9 +1,9 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import type { TAuthnDataRequest, TAuthDataResponse } from "@/types";
-import { apiClient } from "@/utils";
-import { API_ENDPOINTS } from "@/utils/auth-config";
-import { AxiosError } from "axios";
-import { useRouter } from "next/navigation";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import type { TAuthnDataRequest, TAuthDataResponse } from '@/types';
+import { apiClient } from '@/utils';
+import { API_ENDPOINTS } from '@/utils/auth-config';
+import { AxiosError } from 'axios';
+import { useRouter } from 'next/navigation';
 
 export const useLogin = () => {
   const queryClient = useQueryClient();
@@ -19,9 +19,9 @@ export const useLogin = () => {
       }
     },
     onSuccess: (data: TAuthDataResponse) => {
-      queryClient.setQueryData(["auth", "user"], data.user);
-      queryClient.invalidateQueries({ queryKey: ["auth"] });
-      router.push("/cave");
+      queryClient.setQueryData(['auth', 'user'], data.user);
+      queryClient.invalidateQueries({ queryKey: ['auth'] });
+      router.push('/cave');
     },
     onError: (error: AxiosError<TAuthDataResponse>) => {
       return error.response?.data.message;

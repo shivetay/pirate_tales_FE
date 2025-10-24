@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import { useState } from "react";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { useState } from 'react';
 
 // biome-ignore lint/style/noMagicNumbers: <minutes and seconds>
 const ONE_MINUTE = 60 * 1000;
@@ -23,7 +23,7 @@ export default function QueryProvider({
             gcTime: FIVE_MINUTES, // 5 minutes (formerly cacheTime)
           },
         },
-      })
+      }),
   );
 
   return (

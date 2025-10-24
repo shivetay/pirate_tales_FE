@@ -1,7 +1,7 @@
-"use client";
-import { useEffect } from "react";
-import { useTranslation } from "react-i18next";
-import "@/i18n";
+'use client';
+import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import '@/i18n';
 
 interface I18nProviderProps {
   children: React.ReactNode;
