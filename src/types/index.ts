@@ -1,2 +1,2 @@
-export * from './store/type';
 export * from './common';
+export * from './store/type';

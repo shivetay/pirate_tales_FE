@@ -3,9 +3,9 @@ import { useSearchParams } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { useLogin, useRegister } from '@/utils';
 import './auth-view.css';
+import { useTranslation } from 'react-i18next';
 import { Input } from '@/components';
 import type { TAuthnDataRequest } from '@/types';
-import { useTranslation } from 'react-i18next';
 
 const FIELDS_COUNT = 4;
 
@@ -17,7 +17,7 @@ export default function AuthView() {
   const {
     register,
     handleSubmit,
-    formState: { isDirty, dirtyFields },
+    formState: { dirtyFields },
   } = useForm({
     defaultValues: {
       email: '',

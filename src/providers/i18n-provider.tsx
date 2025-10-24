@@ -8,7 +8,7 @@ interface I18nProviderProps {
   locale: string;
 }
 
-export default function I18nProvider({ children, locale }: I18nProviderProps) {
+export function I18nProvider({ children, locale }: I18nProviderProps) {
   const { i18n } = useTranslation();
 
   useEffect(() => {
@@ -19,3 +19,4 @@ export default function I18nProvider({ children, locale }: I18nProviderProps) {
 
   return <>{children}</>;
 }
+export default I18nProvider;

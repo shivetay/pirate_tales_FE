@@ -4,6 +4,7 @@ export const AUTH_CONFIG = {
   TOKEN_KEY: 'auth_token',
   REFRESH_TOKEN_KEY: 'refresh_token',
   USER_KEY: 'user_data',
+  // biome-ignore lint/style/noMagicNumbers: <time>
   TOKEN_EXPIRY_BUFFER: 5 * 60 * 1000, // 5 minutes
 } as const;
 

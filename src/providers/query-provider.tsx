@@ -9,11 +9,7 @@ const ONE_MINUTE = 60 * 1000;
 // biome-ignore lint/style/noMagicNumbers: <minutes and seconds>
 const FIVE_MINUTES = 5 * 60 * 1000;
 
-export default function QueryProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function QueryProvider({ children }: { children: React.ReactNode }) {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -33,3 +29,5 @@ export default function QueryProvider({
     </QueryClientProvider>
   );
 }
+
+export default QueryProvider;
