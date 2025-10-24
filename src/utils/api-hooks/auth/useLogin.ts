@@ -21,7 +21,9 @@ export const useLogin = () => {
     },
     onSuccess: (data: TAuthDataResponse) => {
       queryClient.setQueryData(['auth', 'user'], data.user);
-      queryClient.invalidateQueries({ queryKey: ['auth'] });
+      queryClient
+        .invalidateQueries({ queryKey: ['auth'] })
+        .catch(console.error);
       router.push('/cave');
     },
     onError: (error: AxiosError<TAuthDataResponse>) => {
