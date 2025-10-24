@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import "@/app/globals.css";
-import QueryProvider from "@/providers/query-provider";
+import "../globals.css";
+import "./auth.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -15,7 +15,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <QueryProvider>{children}</QueryProvider>
+        <div className="auth-layout">
+          <div className="background-image blur-sm"></div>
+          <div className="content">{children}</div>
+        </div>
       </body>
     </html>
   );

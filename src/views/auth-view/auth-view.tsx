@@ -4,12 +4,13 @@ import { useForm } from "react-hook-form";
 import { useLogin, useRegister } from "@/utils";
 import "./auth-view.css";
 import { Input } from "@/components";
-import useTranslation from "next-translate/useTranslation";
 import type { TAuthnDataRequest } from "@/types";
+import { useTranslation } from "react-i18next";
+
+const FIELDS_COUNT = 4;
 
 export default function AuthView() {
-  const { t } = useTranslation("common");
-
+  const { t } = useTranslation();
   const searchParams = useSearchParams();
   const mode = searchParams.get("mode") || "signin";
 
@@ -32,7 +33,7 @@ export default function AuthView() {
     mode === "signup" ? signInUser(data) : loginUser(data);
   };
 
-  const isDisabled = Object.keys(dirtyFields).length !== 4;
+  const isDisabled = Object.keys(dirtyFields).length !== FIELDS_COUNT;
 
   console.log(error, registerError);
 

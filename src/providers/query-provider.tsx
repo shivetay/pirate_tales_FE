@@ -4,6 +4,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useState } from "react";
 
+// biome-ignore lint/style/noMagicNumbers: <minutes and seconds>
+const ONE_MINUTE = 60 * 1000;
+// biome-ignore lint/style/noMagicNumbers: <minutes and seconds>
+const FIVE_MINUTES = 5 * 60 * 1000;
+
 export default function QueryProvider({
   children,
 }: {
@@ -14,8 +19,8 @@ export default function QueryProvider({
       new QueryClient({
         defaultOptions: {
           queries: {
-            staleTime: 60 * 1000, // 1 minute
-            gcTime: 5 * 60 * 1000, // 5 minutes (formerly cacheTime)
+            staleTime: ONE_MINUTE, // 1 minute
+            gcTime: FIVE_MINUTES, // 5 minutes (formerly cacheTime)
           },
         },
       })
