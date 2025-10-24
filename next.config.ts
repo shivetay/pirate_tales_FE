@@ -4,4 +4,6 @@ const nextConfig: NextConfig = {
   /* config options here */
 };
 
-export default nextConfig;
+const withNextTranslate = require("next-translate-plugin");
+
+module.exports = withNextTranslate(nextConfig);

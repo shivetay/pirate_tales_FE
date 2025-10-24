@@ -1,0 +1,8 @@
+{
+  "AUTH_EMAIL_LABEL": "Email",
+  "AUTH_PASSWORD_LABEL": "Hasło",
+  "AUTH_EMAIL_PLACEHOLDER": "Wprowadź swój email",
+  "AUTH_PASSWORD_PLACEHOLDER": "Wprowadź swoje hasło",
+  "AUTH_LOGIN_TITLE": "Zaloguj się",
+  "AUTH_REGISTER_TITLE": "Zarejestruj się"
+}
