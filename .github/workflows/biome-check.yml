@@ -43,7 +43,7 @@ jobs:
         run: pnpm biome check
 
       - name: Run Biome format check
-        run: pnpm biome format --check
+        run: pnpm biome format
 
       - name: Run Biome type check
-        run: pnpm biome check --type-check
+        run: pnpm biome check
