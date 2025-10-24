@@ -1,13 +1,13 @@
-import axios from "axios";
-import { AUTH_CONFIG } from "@/utils/auth-config";
-import { cookieStorage } from "./cookies";
+import axios from 'axios';
+import { AUTH_CONFIG } from '@/utils/auth-config';
+import { cookieStorage } from './cookies';
 
 const BASE_URL = AUTH_CONFIG.API_BASE_URL;
 
 export const apiClient = axios.create({
   baseURL: BASE_URL,
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 });
 
@@ -23,7 +23,7 @@ apiClient.interceptors.response.use((response) => {
   if (response.data.token) {
     cookieStorage.setAuthTokens(
       response.data.token,
-      response.data.refreshToken
+      response.data.refreshToken,
     );
   }
   return response;

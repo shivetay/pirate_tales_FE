@@ -1,38 +1,39 @@
-"use client";
-import { useSearchParams } from "next/navigation";
-import { useForm } from "react-hook-form";
-import { useLogin, useRegister } from "@/utils";
-import "./auth-view.css";
-import { Input } from "@/components";
-import useTranslation from "next-translate/useTranslation";
-import type { TAuthnDataRequest } from "@/types";
+'use client';
+import { useSearchParams } from 'next/navigation';
+import { useForm } from 'react-hook-form';
+import { useLogin, useRegister } from '@/utils';
+import './auth-view.css';
+import { useTranslation } from 'react-i18next';
+import { Input } from '@/components';
+import type { TAuthnDataRequest } from '@/types';
+
+const FIELDS_COUNT = 4;
 
 export default function AuthView() {
-  const { t } = useTranslation("common");
-
+  const { t } = useTranslation();
   const searchParams = useSearchParams();
-  const mode = searchParams.get("mode") || "signin";
+  const mode = searchParams.get('mode') || 'signin';
 
   const {
     register,
     handleSubmit,
-    formState: { isDirty, dirtyFields },
+    formState: { dirtyFields },
   } = useForm({
     defaultValues: {
-      email: "",
-      password: "",
-      password_confirm: "",
-      user_name: "",
+      email: '',
+      password: '',
+      password_confirm: '',
+      user_name: '',
     },
   });
   const { loginUser, error } = useLogin();
   const { signInUser, error: registerError } = useRegister();
 
   const onSubmit = (data: TAuthnDataRequest) => {
-    mode === "signup" ? signInUser(data) : loginUser(data);
+    mode === 'signup' ? signInUser(data) : loginUser(data);
   };
 
-  const isDisabled = Object.keys(dirtyFields).length !== 4;
+  const isDisabled = Object.keys(dirtyFields).length !== FIELDS_COUNT;
 
   console.log(error, registerError);
 
@@ -40,7 +41,7 @@ export default function AuthView() {
     <div className="auth-view">
       <div className="auth-title-container">
         <h1 className="auth-title">
-          {t(mode === "signup" ? "AUTH_REGISTER_TITLE" : "AUTH_LOGIN_TITLE")}
+          {t(mode === 'signup' ? 'AUTH_REGISTER_TITLE' : 'AUTH_LOGIN_TITLE')}
         </h1>
       </div>
 
@@ -51,32 +52,32 @@ export default function AuthView() {
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="auth-form-group">
-            {mode === "signup" && (
+            {mode === 'signup' && (
               <Input
-                label={t("AUTH_USER_NAME_LABEL")}
+                label={t('AUTH_USER_NAME_LABEL')}
                 type="text"
-                placeholder={t("AUTH_USER_NAME_PLACEHOLDER")}
-                {...register("user_name")}
+                placeholder={t('AUTH_USER_NAME_PLACEHOLDER')}
+                {...register('user_name')}
               />
             )}
             <Input
-              label={t("AUTH_EMAIL_LABEL")}
+              label={t('AUTH_EMAIL_LABEL')}
               type="email"
-              placeholder={t("AUTH_EMAIL_PLACEHOLDER")}
-              {...register("email")}
+              placeholder={t('AUTH_EMAIL_PLACEHOLDER')}
+              {...register('email')}
             />
             <Input
-              label={t("AUTH_PASSWORD_LABEL")}
+              label={t('AUTH_PASSWORD_LABEL')}
               type="password"
-              placeholder={t("AUTH_PASSWORD_PLACEHOLDER")}
-              {...register("password")}
+              placeholder={t('AUTH_PASSWORD_PLACEHOLDER')}
+              {...register('password')}
             />
-            {mode === "signup" && (
+            {mode === 'signup' && (
               <Input
-                label={t("AUTH_CONFIRM_PASSWORD_LABEL")}
+                label={t('AUTH_CONFIRM_PASSWORD_LABEL')}
                 type="password"
-                placeholder={t("AUTH_CONFIRM_PASSWORD_PLACEHOLDER")}
-                {...register("password_confirm")}
+                placeholder={t('AUTH_CONFIRM_PASSWORD_PLACEHOLDER')}
+                {...register('password_confirm')}
               />
             )}
           </div>

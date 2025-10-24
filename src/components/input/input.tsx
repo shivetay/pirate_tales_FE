@@ -1,8 +1,8 @@
-import { forwardRef } from "react";
-import "./input.css";
+import { forwardRef } from 'react';
+import './input.css';
 type TInputProps = {
   label?: string;
-  type: "password" | "email" | "text" | "number";
+  type: 'password' | 'email' | 'text' | 'number';
   name: string;
   placeholder?: string;
 } & React.InputHTMLAttributes<HTMLInputElement>;
@@ -22,14 +22,14 @@ const Input = forwardRef<HTMLInputElement, TInputProps>(
           ref={ref}
           type={type}
           name={name}
-          placeholder={placeholder || ""}
+          placeholder={placeholder || ''}
           {...props}
         />
       </>
     );
-  }
+  },
 );
 
-Input.displayName = "Input";
+Input.displayName = 'Input';
 
 export default Input;

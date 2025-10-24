@@ -1,5 +1,4 @@
-import { AuthView } from "@/views";
-import Image from "next/image";
+import { AuthView } from '@/views';
 
 export default function AuthPage() {
   return (

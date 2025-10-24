@@ -1,9 +1,9 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import type { TAuthnDataRequest, TAuthDataResponse } from "@/types";
-import { apiClient } from "@/utils";
-import { API_ENDPOINTS } from "@/utils/auth-config";
-import { AxiosError } from "axios";
-import { useRouter } from "next/navigation";
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import type { AxiosError } from 'axios';
+import { useRouter } from 'next/navigation';
+import type { TAuthDataResponse, TAuthnDataRequest } from '@/types';
+import { apiClient } from '@/utils';
+import { API_ENDPOINTS } from '@/utils/auth-config';
 
 export const useLogin = () => {
   const queryClient = useQueryClient();
@@ -15,13 +15,16 @@ export const useLogin = () => {
         const loginData = await apiClient.post(API_ENDPOINTS.LOGIN, data);
         return loginData.data;
       } catch (error) {
+        // biome-ignore lint/complexity/noUselessCatch: <to do>
         throw error;
       }
     },
     onSuccess: (data: TAuthDataResponse) => {
-      queryClient.setQueryData(["auth", "user"], data.user);
-      queryClient.invalidateQueries({ queryKey: ["auth"] });
-      router.push("/cave");
+      queryClient.setQueryData(['auth', 'user'], data.user);
+      queryClient
+        .invalidateQueries({ queryKey: ['auth'] })
+        .catch(console.error);
+      router.push('/cave');
     },
     onError: (error: AxiosError<TAuthDataResponse>) => {
       return error.response?.data.message;
