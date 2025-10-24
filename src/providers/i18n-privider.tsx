@@ -13,7 +13,7 @@ export default function I18nProvider({ children, locale }: I18nProviderProps) {
 
   useEffect(() => {
     if (i18n.language !== locale) {
-      i18n.changeLanguage(locale);
+      i18n.changeLanguage(locale).catch(console.error);
     }
   }, [locale, i18n]);
 
