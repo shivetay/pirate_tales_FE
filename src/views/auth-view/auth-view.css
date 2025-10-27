@@ -94,6 +94,20 @@
   z-index: 2;
 }
 
+.auth-error {
+  text-align: center;
+  color: var(--text-secondary);
+  z-index: 2;
+
+  &.auth-error-signup {
+    margin-top: -1rem;
+  }
+
+  &.auth-error-signin {
+    margin-top: 7.4rem;
+  }
+}
+
 /* Animation for state transitions */
 @keyframes fadeInActive {
   from {
