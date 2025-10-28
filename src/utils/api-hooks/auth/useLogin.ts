@@ -13,6 +13,7 @@ export const useLogin = () => {
       try {
         const loginData = await apiClient.post(API_ENDPOINTS.LOGIN, data);
         return loginData.data;
+        // biome-ignore lint/suspicious/noExplicitAny: <Error>
       } catch (error: any) {
         throw new Error(
           error.response?.data.message || 'AUTH_ERROR_INVALID_CREDENTIALS',

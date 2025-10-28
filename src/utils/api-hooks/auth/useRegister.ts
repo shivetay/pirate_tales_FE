@@ -13,6 +13,7 @@ export const useRegister = () => {
       try {
         const response = await apiClient.post(API_ENDPOINTS.REGISTER, data);
         return response.data;
+        // biome-ignore lint/suspicious/noExplicitAny: <error>
       } catch (error: any) {
         throw new Error(
           error.response?.data.message || 'AUTH_ERROR_INVALID_CREDENTIALS',
