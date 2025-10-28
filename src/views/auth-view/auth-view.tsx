@@ -39,7 +39,8 @@ export default function AuthView() {
     Object.keys(dirtyFields).length !==
     (mode === 'signup' ? FIELDS_COUNT_SIGNUP : FIELDS_COUNT_SIGNIN);
 
-  console.log(error, registerError);
+  const errorCheck =
+    typeof error === 'string' ? error : error?.message || 'An error occurred';
 
   return (
     <div className="auth-view">
@@ -90,7 +91,7 @@ export default function AuthView() {
           <button type="submit" className="auth-btn " disabled={isDisabled} />
         </form>
         {error && (
-          <p className={`auth-error auth-error-${mode}`}>{error.message}</p>
+          <p className={`auth-error auth-error-${mode}`}>{t(errorCheck)}</p>
         )}
       </div>
     </div>

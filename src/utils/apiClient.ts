@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { HttpStatusCode } from 'axios';
 import { AUTH_CONFIG } from '@/utils/auth-config';
 import { cookieStorage } from './cookies';
 
@@ -19,14 +19,24 @@ apiClient.interceptors.request.use((config) => {
   return config;
 });
 
-apiClient.interceptors.response.use((response) => {
-  if (response.data.token) {
-    cookieStorage.setAuthTokens(
-      response.data.token,
-      response.data.refreshToken,
-    );
-  }
-  return response;
-});
+apiClient.interceptors.response.use(
+  (response) => {
+    if (response.data.token) {
+      cookieStorage.setAuthTokens(
+        response.data.token,
+        response.data.refreshToken,
+      );
+    }
+    return response;
+  },
+  (error) => {
+    // Handle common error cases
+    if (error.response?.status === HttpStatusCode.Unauthorized) {
+      // Clear tokens on unauthorized
+      cookieStorage.clearAuthTokens();
+    }
+    return Promise.reject(error);
+  },
+);
 
 export default apiClient;
