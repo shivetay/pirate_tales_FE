@@ -1,5 +1,4 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import type { AxiosError } from 'axios';
 import { useRouter } from 'next/navigation';
 import type { TAuthDataResponse, TAuthnDataRequest } from '@/types';
 import { apiClient } from '@/utils';
@@ -14,9 +13,11 @@ export const useRegister = () => {
       try {
         const response = await apiClient.post(API_ENDPOINTS.REGISTER, data);
         return response.data;
-      } catch (error) {
-        // biome-ignore lint/complexity/noUselessCatch: <to do>
-        throw error;
+        // biome-ignore lint/suspicious/noExplicitAny: <error>
+      } catch (error: any) {
+        throw new Error(
+          error.response?.data.message || 'AUTH_ERROR_INVALID_CREDENTIALS',
+        );
       }
     },
     onSuccess: (data: TAuthDataResponse) => {
@@ -25,9 +26,6 @@ export const useRegister = () => {
         .invalidateQueries({ queryKey: ['auth'] })
         .catch(console.error);
       router.push('/cave');
-    },
-    onError: (error: AxiosError<TAuthDataResponse>) => {
-      return error.response?.data.message;
     },
   });
 

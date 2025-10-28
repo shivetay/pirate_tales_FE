@@ -8,5 +8,10 @@
   "AUTH_USER_NAME_PLACEHOLDER": "Enter your user name",
   "AUTH_CONFIRM_PASSWORD_PLACEHOLDER": "Confirm your password",
   "AUTH_LOGIN_TITLE": "Login",
-  "AUTH_REGISTER_TITLE": "Register"
+  "AUTH_REGISTER_TITLE": "Register",
+  "AUTH_ERROR_INVALID_CREDENTIALS": "Invalid credentials",
+  "AUTH_ERROR_USER_NOT_FOUND": "User not found",
+  "AUTH_ERROR_USER_ALREADY_EXISTS": "User already exists",
+  "AUTH_ERROR_PROVIDE_ALL_FIELDS": "Please provide all fields",
+  "GENERAL_ERROR": "Something went wrong"
 }

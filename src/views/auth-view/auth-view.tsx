@@ -7,7 +7,8 @@ import { useTranslation } from 'react-i18next';
 import { Input } from '@/components';
 import type { TAuthnDataRequest } from '@/types';
 
-const FIELDS_COUNT = 4;
+const FIELDS_COUNT_SIGNUP = 4;
+const FIELDS_COUNT_SIGNIN = 2;
 
 export default function AuthView() {
   const { t } = useTranslation();
@@ -26,16 +27,20 @@ export default function AuthView() {
       user_name: '',
     },
   });
-  const { loginUser, error } = useLogin();
+  const { loginUser, error: loginError } = useLogin();
   const { signInUser, error: registerError } = useRegister();
 
   const onSubmit = (data: TAuthnDataRequest) => {
     mode === 'signup' ? signInUser(data) : loginUser(data);
   };
 
-  const isDisabled = Object.keys(dirtyFields).length !== FIELDS_COUNT;
+  const error = loginError || registerError;
+  const isDisabled =
+    Object.keys(dirtyFields).length !==
+    (mode === 'signup' ? FIELDS_COUNT_SIGNUP : FIELDS_COUNT_SIGNIN);
 
-  console.log(error, registerError);
+  const errorCheck =
+    typeof error === 'string' ? error : error?.message || 'An error occurred';
 
   return (
     <div className="auth-view">
@@ -85,8 +90,10 @@ export default function AuthView() {
           {/* //TODO add google and fb login */}
           <button type="submit" className="auth-btn " disabled={isDisabled} />
         </form>
+        {error && (
+          <p className={`auth-error auth-error-${mode}`}>{t(errorCheck)}</p>
+        )}
       </div>
-      {/* //TODO add errors */}
     </div>
   );
 }
