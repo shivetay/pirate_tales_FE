@@ -14,7 +14,9 @@ export const useRegister = () => {
         const response = await apiClient.post(API_ENDPOINTS.REGISTER, data);
         return response.data;
       } catch (error: any) {
-        throw error.response?.data.message;
+        throw new Error(
+          error.response?.data.message || 'AUTH_ERROR_INVALID_CREDENTIALS',
+        );
       }
     },
     onSuccess: (data: TAuthDataResponse) => {

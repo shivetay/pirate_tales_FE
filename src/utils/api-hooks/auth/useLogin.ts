@@ -14,7 +14,9 @@ export const useLogin = () => {
         const loginData = await apiClient.post(API_ENDPOINTS.LOGIN, data);
         return loginData.data;
       } catch (error: any) {
-        throw error.response?.data.message;
+        throw new Error(
+          error.response?.data.message || 'AUTH_ERROR_INVALID_CREDENTIALS',
+        );
       }
     },
     onSuccess: (data: TAuthDataResponse) => {
