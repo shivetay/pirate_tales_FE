@@ -1,2 +1,1 @@
-export * from './auth-view';
 export * from './home-view';
