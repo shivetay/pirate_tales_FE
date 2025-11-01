@@ -13,5 +13,7 @@
   "AUTH_ERROR_USER_NOT_FOUND": "User not found",
   "AUTH_ERROR_USER_ALREADY_EXISTS": "User already exists",
   "AUTH_ERROR_PROVIDE_ALL_FIELDS": "Please provide all fields",
-  "GENERAL_ERROR": "Something went wrong"
+  "GENERAL_ERROR": "Something went wrong",
+  "LOGIN_BUTTON_LABEL": "Login",
+  "REGISTER_BUTTON_LABEL": "Register"
 }

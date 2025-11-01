@@ -4,5 +4,7 @@
   "AUTH_EMAIL_PLACEHOLDER": "Wprowadź swój email",
   "AUTH_PASSWORD_PLACEHOLDER": "Wprowadź swoje hasło",
   "AUTH_LOGIN_TITLE": "Zaloguj się",
-  "AUTH_REGISTER_TITLE": "Zarejestruj się"
+  "AUTH_REGISTER_TITLE": "Zarejestruj się",
+  "LOGIN_BUTTON_LABEL": "Zaloguj się",
+  "REGISTER_BUTTON_LABEL": "Zarejestruj się"
 }
