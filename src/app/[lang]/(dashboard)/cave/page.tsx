@@ -1,3 +1,3 @@
-export default function Cave() {
+export default function CavePage() {
   return <div>Cave</div>;
 }

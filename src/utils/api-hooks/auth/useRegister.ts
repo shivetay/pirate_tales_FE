@@ -1,14 +1,12 @@
 'use client';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
-import { useRouter } from 'next/navigation';
 import type { TAuthDataResponse, TAuthnDataRequest } from '@/types';
-import { apiClient } from '@/utils';
+import { apiClient, useLanguageNavigation } from '@/utils';
 import { API_ENDPOINTS } from '@/utils/auth-config';
 
 export const useRegister = () => {
   const queryClient = useQueryClient();
-  const router = useRouter();
-
+  const { navigateToLanguage, currentLang } = useLanguageNavigation();
   const { mutate: signInUser, error } = useMutation({
     mutationFn: async (data: TAuthnDataRequest) => {
       try {
@@ -26,7 +24,7 @@ export const useRegister = () => {
       queryClient
         .invalidateQueries({ queryKey: ['auth'] })
         .catch(console.error);
-      router.push('/cave');
+      navigateToLanguage(currentLang, '/cave');
     },
   });
 
